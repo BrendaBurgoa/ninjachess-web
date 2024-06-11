@@ -1,0 +1,125 @@
+/* Estilos generales */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #15344f;
+  background-size: cover;
+  background-position: center;
+}
+
+.buttons {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.donwload-app {
+  width: 250px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 1;
+}
+
+.donwload-app:hover {
+  cursor: pointer;
+}
+
+.download-app img {
+  height: 40px;
+}
+
+.comingsoon img {
+  opacity: 0.7;
+}
+
+.comingsoon::before {
+  content: "Coming Soon!";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000f24;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: var(--rubik);
+  opacity: 1;
+}
+
+.gradient-border {
+  position: relative;
+  display: inline-block;
+  padding: 2px;
+  border-radius: 10px;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #b300f4, #56a3f5, #adcad1, #5e1674);
+  background-size: 300% 300%;
+  transition: opacity 1s ease;
+  opacity: 0;
+  z-index: 0;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5), 0 0 40px rgba(0, 255, 0, 0.5), 0 0 60px rgba(0, 0, 255, 0.5);
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+  animation: gradient-animation 10s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive */
+
+/* Fondo para desktop */
+@media (min-width: 1025px) {
+  body {
+      background-image: url('../images/png/splash_web.png');
+  }
+}
+
+/* Fondo para tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+    background-image: url('../images/png/splash_tablet.png');
+  }
+}
+
+/* Fondo para móvil */
+@media (max-width: 767px) {
+  body {
+    background-image: url('../images/png/splash_mobile.png');
+  }
+  .buttons {
+    flex-direction: column;
+  }
+  .donwload-app {
+    width: 200px;
+  }
+}

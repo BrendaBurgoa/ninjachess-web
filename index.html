@@ -43,16 +43,16 @@
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
 	<body>
-        
+        <!-- Botones -->
         <div class="data-container">
-            <div>
+            <div style="display: none;">
                 <h1>Coming Soon</h1>
                 <p>Patience, young grasshopper. This will be worth the wait!</p>
-                <p>Follow us on <a href="https://x.com/NinjaChessXYZ" target="_blank">@NinjaChessXYZ</a></p>
+                
             </div>
-            <div class="buttons" style="display: none;">
+            <div class="buttons">
                 <div class="gradient-border">
-                    <a href="#" class="donwload-app">
+                    <a href="#" class="donwload-app" id="appStoreBtn">
                         <img src="./assets/images/svg/appstore.svg" alt="download on app">
                     </a>
                 </div>
@@ -62,6 +62,29 @@
                     </a>
                 </div>
             </div>
+            <div class="follow">
+                <p>Follow us on <a href="https://x.com/NinjaChessXYZ" target="_blank">@NinjaChessXYZ</a></p>
+            </div>
         </div> 
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>We are sorry, but the game is not yet ready for iOS. However, we are working hard to bring it to you soon. Please leave your email below, and we will notify you as soon as the iOS version is available. Thank you for your patience and interest!</p>
+                <form action="" class="footer-form pure-g" name="submit-to-google-sheet">
+                    <input name="email" type="email" placeholder="Enter your email address" class="pure-u-3-5 sub" required>
+                    <input type="submit" value="Notify Me" class="pure-u-2-5 submit">
+                </form>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div id="modalSuccess" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 class="is-center color-white">Email Received 🚀</h2>
+                <p>Thank you for your interest! We will notify you as soon as the iOS version is available.</p>
+            </div>
+          </div>
+        <script src="./assets/scripts/script.js"></script>
     </body>	
 </html>

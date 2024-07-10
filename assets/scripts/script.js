@@ -62,6 +62,7 @@ const Confettiful = function (el) {
 
 // Get the modal
 var modal = document.getElementById("myModal");
+var modalError = document.getElementById("modalError");
 // Get the button that opens the modal
 var btn = document.getElementById("appStoreBtn");
 
@@ -118,13 +119,18 @@ form.addEventListener('submit', e => {
       loader.style.display= "none";
       openModal("modalSuccess");
       })
-    .catch(error => console.error('Error!', error.message))
+    .catch(error => openModalError("modalError"))
 })
 
 function openModal(id) {
     document.getElementById(id).classList.add('open');
     document.body.classList.add('modal-open');
     window.confettiful = new Confettiful(document.querySelector(".confetti"));
+}
+
+function openModalError(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.classList.add('modal-open');
 }
 
 // close currently open modal

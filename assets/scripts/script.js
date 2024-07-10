@@ -76,6 +76,8 @@ btn.onclick = function() {
     modal.style.display = "block";
 }
 
+var loader = document.getElementById("loader");
+
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
@@ -107,11 +109,13 @@ const form = document.forms['submit-to-google-sheet']
 
 form.addEventListener('submit', e => {
   e.preventDefault()
-  
+  modal.style.display= "none";
+  loader.style.display= "block";
+
   fetch(scriptURL, { method: 'POST', body: new FormData(form)})
     .then(function(){
       response=> console.log('Success!', response);
-      modal.style.display= "none";
+      loader.style.display= "none";
       openModal("modalSuccess");
       })
     .catch(error => console.error('Error!', error.message))

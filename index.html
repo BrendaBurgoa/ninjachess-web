@@ -68,21 +68,26 @@
         </div> 
         <!-- Modal -->
         <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>We are sorry, but the game is not yet ready for iOS. However, we are working hard to bring it to you soon. Please leave your email below, and we will notify you as soon as the iOS version is available. Thank you for your patience and interest!</p>
-                <form action="" class="footer-form pure-g" name="submit-to-google-sheet">
-                    <input name="email" type="email" placeholder="Enter your email address" class="pure-u-3-5 sub" required>
-                    <input type="submit" value="Notify Me" class="pure-u-2-5 submit">
-                </form>
+            <div class="gradient-modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h1>iOs is coming soon!</h1>
+                    <p>We are working hard to bring it to you soon. Please leave your email below, and we will notify you as soon as the iOS version is available. Thank you for your patience and interest!</p>
+                    <form action="" class="footer-form pure-g" name="submit-to-google-sheet">
+                        <input name="email" id="modalInput" type="email" placeholder="Enter your email address" class="pure-u-3-5 sub inputform" required>
+                        <input type="submit" value="Notify Me" class="pure-u-2-5 submit modal__btn">
+                    </form>
+                </div>
             </div>
         </div>
         <!-- Modal -->
-        <div id="modalSuccess" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h2 class="is-center color-white">Email Received 🚀</h2>
-                <p>Thank you for your interest! We will notify you as soon as the iOS version is available.</p>
+        <div id="modalSuccess" class="modal confetti">
+            <div class="gradient-modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2 class="is-center color-white">Email Received 🚀</h2>
+                    <p>Thank you for your interest! We will notify you as soon as the iOS version is available.</p>
+                </div>
             </div>
           </div>
         <script src="./assets/scripts/script.js"></script>

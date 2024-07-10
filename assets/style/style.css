@@ -129,18 +129,98 @@ a {
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  overflow: hidden;
   background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgb(0 0 0 / 75%);
+  background-color: rgb(0 0 0 / 80%);
 }
 
 /* Modal content */
 .modal-content {
-  background-color: #7f0971;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  padding: 4rem 2rem;
+  border-radius: 0.5rem;
+  color: hsl(220, 50%, 90%);;
+  background: linear-gradient(to right, hsl(210, 30%, 20%), hsl(255, 30%, 25%));
+  box-shadow: hsla(0, 0%, 0%, .4), .4rem .4rem 10.2rem .2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.inputform {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid hsla(0, 0%, 100%, .2);
+  border-radius: 0.5rem;
+  color: inherit;
+  background: #dddddd;
+  font-size: 1.4rem;
+  font-family: inherit;
+  /* letter-spacing: .2rem; */
+  transition: .2s;
+  cursor: pointer;
+  color: #212121;
+}
+
+.modal__btn {
+  margin-top: 2rem;
+  padding: 0.8rem;
+  border: 1px solid hsl(0deg 0% 100% / 64%);
+  border-radius: 100rem;
+  color: inherit;
+  background: transparent;
+  font-size: 1.2rem;
+  font-family: inherit;
+  /* letter-spacing: .2rem; */
+  transition: .2s;
+  cursor: pointer;
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 13px 0px rgb(0 0 0 / 31%);
+}
+
+.modal__btn:hover {
+  border: 1px solid hsla(0, 0%, 100%, 0.64);
+  box-shadow: 0px 2px 13px 0px rgba(255, 255, 255, 0.31);
+  background-color: #242b3f;
+  transition: 1s all;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+}
+
+.gradient-modal {
+  position: relative;
+  /* display: inline-block; */
+  padding: 2px;
+  border-radius: 10px;
+  width: 45%;
+  margin: 15% auto;
+}
+
+.gradient-modal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #b300f4, #56a3f5, #adcad1, #5e1674);
+  background-size: 300% 300%;
+  transition: opacity 1s ease;
+  z-index: 0;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5), 0 0 40px rgba(0, 255, 0, 0.5), 0 0 60px rgba(0, 0, 255, 0.5);
+  opacity: 1;
+  animation: gradient-animation 4s ease infinite;
+}
+
+.modal h1, .modal p {
+  text-shadow: none;
+  margin-left: 0;
 }
 
 /* The close button */
@@ -149,11 +229,12 @@ a {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  margin-top: -2rem;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: white;
   text-decoration: none;
   cursor: pointer;
 }
@@ -161,6 +242,59 @@ a {
 .open, .modal-open {
   display: block;
 }
+
+
+/* Confetti */
+
+@keyframes confetti-slow {
+  0% {
+    transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+  }
+  100% {
+    transform: translate3d(25px, 105vh, 0) rotateX(360deg) rotateY(180deg);
+  }
+}
+@keyframes confetti-medium {
+  0% {
+    transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+  }
+  100% {
+    transform: translate3d(100px, 105vh, 0) rotateX(100deg) rotateY(360deg);
+  }
+}
+@keyframes confetti-fast {
+  0% {
+    transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+  }
+  100% {
+    transform: translate3d(-50px, 105vh, 0) rotateX(10deg) rotateY(250deg);
+  }
+}
+.confetti-container {
+  perspective: 700px;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.confetti {
+  position: absolute;
+  z-index: 1;
+  border-radius: 0;
+}
+
+.confetti--animation-slow {
+  animation: confetti-slow 2.25s linear 1 forwards;
+}
+.confetti--animation-medium {
+  animation: confetti-medium 1.75s linear 1 forwards;
+}
+.confetti--animation-fast {
+  animation: confetti-fast 1.25s linear 1 forwards;
+}
+
 
 /* Responsive */
 
@@ -182,6 +316,9 @@ a {
     background-position: center;
     background-repeat: no-repeat;
   }
+  .gradient-modal {
+    width: 70%;
+  }
 }
 
 /* Fondo para móvil */
@@ -197,5 +334,12 @@ a {
   }
   .donwload-app {
     width: 170px;
+  }
+  .gradient-modal {
+    width: 85%;
+    transform: translateY(50%);
+  }
+  .inputform {
+    font-size: 1rem;
   }
 }

@@ -337,6 +337,8 @@ a {
   }
   .gradient-modal {
     width: 85%;
+  }
+  .success {
     transform: translateY(50%);
   }
   .inputform {

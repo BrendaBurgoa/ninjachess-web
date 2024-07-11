@@ -136,7 +136,7 @@ a {
 
 /* Modal content */
 .modal-content {
-  padding: 3rem 2rem;
+  padding: 3rem 3rem;
   border-radius: 0.5rem;
   color: hsl(220, 50%, 90%);;
   background: linear-gradient(to right, hsl(210, 30%, 20%), hsl(255, 30%, 25%));
@@ -161,30 +161,30 @@ a {
 }
 
 .modal__btn {
+  background-image: url(../images/png/btnBigRed.png);
+  background-repeat: no-repeat;
+  background-size: contain;
   margin-top: 2rem;
   padding: 0.8rem;
-  border: 1px solid hsl(0deg 0% 100% / 64%);
-  border-radius: 100rem;
+  /* border: 1px solid hsl(0deg 0% 100% / 64%); */
+  /* border-radius: 100rem; */
   color: inherit;
-  background: transparent;
   font-size: 1.2rem;
   font-family: inherit;
   /* letter-spacing: .2rem; */
   transition: .2s;
   cursor: pointer;
   width: 250px;
-  margin: 0 auto;
-  margin-top: 2rem;
-  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  /* -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75); */
   -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 2px 13px 0px rgb(0 0 0 / 31%);
+  background-color: transparent; /* Agrega esta línea */
+  border: none;
 }
 
 .modal__btn:hover {
-  border: 1px solid hsla(0, 0%, 100%, 0.64);
-  box-shadow: 0px 2px 13px 0px rgba(255, 255, 255, 0.31);
-  background-color: #242b3f;
+  box-shadow: 0px 0px 13px 0px rgba(255, 255, 255, 0.31);
   transition: 1s all;
+  border-radius: 0.5rem;
 }
 
 .modal form {
